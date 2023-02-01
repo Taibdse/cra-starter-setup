@@ -56,11 +56,11 @@ const PageContainer = (props) => {
 
 PageContainer.propTypes = {
   title: PropTypes.string,
-  titleComponent: PropTypes.element,
+  titleComponent: PropTypes.node,
   notfoundTitle: PropTypes.string,
   isLoading: PropTypes.bool,
   isNotFound: PropTypes.bool,
-  children: PropTypes.element,
+  children: PropTypes.node,
   actionButton: PropTypes.any,
   classes: PropTypes.shape({
     container: PropTypes.string,
