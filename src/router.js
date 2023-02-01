@@ -1,5 +1,6 @@
 import DashboardLayout from "layouts/DashboardLayout";
-import ItemPage from "pages/Item";
+import PageA from "pages/PageA";
+import PageB from "pages/PageB";
 import { createBrowserRouter } from "react-router-dom";
 
 export const router = createBrowserRouter([
@@ -8,12 +9,12 @@ export const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        path: '',
-        element: <div>hello</div>
+        path: '/a',
+        element: <PageA />
       },
       {
-        path: '/item',
-        element: <ItemPage />
+        path: '/b',
+        element: <PageB />
       }
     ]
   },
