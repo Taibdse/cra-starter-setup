@@ -1,0 +1,22 @@
+/* Import PrimeFlex as css supportive lib */
+@import url(/node_modules/primeflex/primeflex.css);
+
+/* Reset browser styles */
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* Helpers */
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* CSS variables */
+:root {
+  --sidebar-default: 72px;
+  --sidebar-open: 250px;
+
+}
