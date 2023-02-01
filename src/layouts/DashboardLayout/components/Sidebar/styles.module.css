@@ -1,18 +1,16 @@
 .container {
   background-color: var(--system-00);
-  min-width: 72px;
-  max-width: 72px;
-  width: 72px;
+  min-width: var(--sidebar-default);
+  max-width: var(--sidebar-default);
   box-shadow: 2px 0 4px rgba(24, 36, 50, 0.1);
   transition: all 0.5s;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
   height: 100%;
   z-index: 1;
 }
 
-.container::-webkit-scrollbar-thumb { background-color: transparent; }
-
+.container::-webkit-scrollbar-thumb,
 .container::-webkit-scrollbar-track { background-color: transparent; }
 
 .container:hover::-webkit-scrollbar-thumb {
@@ -24,46 +22,22 @@
 }
 
 .container.open {
-  min-width: 250px;
-  max-width: 250px;
-  width: 250px;
+  min-width: var(--sidebar-open);
+  max-width: var(--sidebar-open);
   transition: all 0.35s;
 }
 
-.group {
-  margin-bottom: 2rem;
-}
-
-
-/* Header */
-.greeting {
-  display: flex;
-  flex-direction: column;
-}
-
-.message {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.75rem 1.2rem;
-  position: relative;
-}
-
-.message.message--minimal {
+.container.open .message{
   justify-content: center;
 }
 
-.message::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  width: 85%;
-  height: 1px;
-  background-color: var(--grey-03);
+
+.message {
+  padding: 0.75rem 1.2rem;
+  justify-content: space-between;
 }
 
-.message p {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--grey-11);
+.navlink {
+  text-decoration: none;
+  color: #172733;
 }

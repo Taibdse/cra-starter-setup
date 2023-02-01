@@ -13,17 +13,17 @@ const DashboardLayout = () => {
   }
 
   return (
-    <div className={styles.wrapper}>
+    <div className="flex flex-column min-h-screen">
       <Navbar
         open={openSidebar}
         onToggle={handleToggleSidebar}
       />
-      <div className={styles.content}>
+      <main className={`flex-grow-1 flex ${styles.main}`}>
         <Sidebar open={openSidebar} />
-        <div className={styles.main} id="main-content">
+        <div className="flex flex-grow-1 flex-column overflow-auto p-3" id="main-content">
           <Outlet />
         </div>
-      </div>
+      </main>
     </div>
   );
 };

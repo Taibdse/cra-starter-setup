@@ -1,6 +1,24 @@
 import React from "react"
 import styles from './styles.module.css';
-import { Menu } from "primereact/menu";
+import { NavLink } from "react-router-dom";
+
+const navlinks = [
+  {
+    to: '/',
+    label: 'Home',
+    icon: 'pi-home'
+  },
+  {
+    to: '/a',
+    label: 'Page A',
+    icon: 'pi-database'
+  },
+  {
+    to: '/b',
+    label: 'Page B',
+    icon: 'pi-check-square'
+  },
+]
 
 const Sidebar = (props) => {
   const { open } = props;
@@ -8,39 +26,26 @@ const Sidebar = (props) => {
 
   const containerClasses = `${styles.container} ${open ? styles.open : ''}`;
 
-  const items = [
-    { label: 'New', icon: 'pi pi-fw pi-plus' },
-    { label: 'Delete', icon: 'pi pi-fw pi-trash' }
-  ];
-
   return (
     <div className={containerClasses}>
-      <div className={open ? styles.greeting : styles['greeting--minimal']}>
-        <div className={`${styles.message} ${!open ? styles['message--minimal'] : ''}`}>
-          {open && (<p className="truncate">Hey {user?.name.split(' ')[0]} welcome back</p>)}
+      <div className="flex flex-column">
+        <div className="flex align-items-center relative mb-2 px-3">
+          {open && (<p className="truncate">Welcome {user?.name.split(' ')[0]}</p>)}
         </div>
       </div>
-      <Menu model={items} />
-      {/* {menuGroupItems.map((menuItems, idx) => (
-        <ul key={idx} className={styles.group}>
-          {menuItems.map((menuItem) => (
-            <React.Fragment key={menuItem.label}>
-              {!open && (<Tooltip target={`.${menuItem.tooltipClassName}`} hideDelay={5} baseZIndex={100} appendTo="self" />)}
-              <NavLink
-                to={menuItem.to}
-                Icon={menuItem.icon}
-                IconActive={menuItem.IconActive}
-                open={open}
-                label={menuItem.label}
-                className={menuItem.tooltipClassName}
-                data-pr-tooltip={menuItem.label}
-                data-pr-position="right"
-              />
-            </React.Fragment>
-          ))}
-        </ul>
-      ))} */}
-    </div>
+      {
+        navlinks.map((navlink) => {
+          return (
+            <NavLink to={navlink.to} key={navlink.to} className={`block ${styles.navlink}`}>
+              <div className={`flex align-items-center justify-content-${open ? "start" : "center"} p-3 `}>
+                {navlink?.icon && (<i className={`pi ${navlink.icon} ${open ? 'mr-2' : ''}`} />)}
+                {open && navlink.label}
+              </div>
+            </NavLink>
+          );
+        })
+      }
+</div>
   );
 }
 
