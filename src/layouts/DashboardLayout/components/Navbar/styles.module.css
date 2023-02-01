@@ -1,0 +1,40 @@
+.container {
+  display: flex;
+  align-items: center;
+  height: 72px;
+  padding: 20px 0;
+  background-color: #172733;
+  color: var(--system-00);
+}
+
+/* 626364 */
+
+.left-nav {
+  width: 250px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.right-nav {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  list-style: none;
+  border-right: 0.5px solid var(--slate-60);
+}
+
+.right-nav__item {
+  margin-right: 60px;
+}
+
+.right-nav__item:hover svg path {
+  fill: #DCDEE0;
+  border-color: #DCDEE0;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
